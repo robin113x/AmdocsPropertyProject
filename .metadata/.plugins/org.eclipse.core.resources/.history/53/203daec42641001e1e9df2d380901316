@@ -1,0 +1,10 @@
+package com.amdocs.in;
+
+import java.sql.Connection;
+
+public class UpdateProperty {
+	public void updatePropperty(Connection conn,S) {
+		//String updateQuery = "UPDATE PropInfo SET Price = ? WHERE Pid = ?";
+
+	}
+}

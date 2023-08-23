@@ -1,0 +1,5 @@
+package com.amdocs.in;
+import java.sql.*;
+public class GetConnection {
+
+}

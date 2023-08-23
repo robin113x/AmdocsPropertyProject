@@ -1,0 +1,14 @@
+package com.amdocs.in;
+import java.sql.Connection;
+import java.sql.DriverManager;
+public class GetConnection {
+	
+	Connection con=null;
+	public static Connection getConnection() {
+		try {
+		con = DriverManager.getConnection(null);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+}

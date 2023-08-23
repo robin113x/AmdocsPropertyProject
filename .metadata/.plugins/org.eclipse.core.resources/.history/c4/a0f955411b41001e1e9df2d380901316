@@ -1,0 +1,31 @@
+package com.amdocs.in;
+
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+public class DisplayProperty {
+	Statement statement;
+
+	public void displayPro(Connection conn, String pname) {
+		try {
+			statement = conn.createStatement();
+			String QUERY = "SELECT * FROM PropInfo where PName="+pname+";";
+			ResultSet rs = statement.executeQuery(QUERY);
+
+			while (rs.next()) {
+				// Display values
+				System.out.print("PID: " + rs.getInt("Pid"));
+				System.out.print(", Name: " + rs.getInt("PName"));
+				System.out.print(", Area: " + rs.getString("PArea"));
+				System.out.print(", Price: " + rs.getString("Price"));
+				System.out.print(", Owner: " + rs.getString("Price"));
+				System.out.println(", Buyer: " + rs.getString("Price"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+
+	}
+}

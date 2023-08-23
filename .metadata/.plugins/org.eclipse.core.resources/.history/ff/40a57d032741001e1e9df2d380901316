@@ -1,0 +1,66 @@
+package com.amdocs.in;
+
+import java.sql.Connection;
+import java.util.Scanner;
+
+public class UpdateProperty {
+	public void updatePropperty(Connection conn,Scanner sc) {
+		//String updateQuery = "UPDATE PropInfo SET Price = ? WHERE Pid = ?";
+
+	}
+}
+
+
+
+/*
+ *
+
+
+
+
+        try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Enter the ID of the property to update: ");
+            int propertyIdToUpdate = sc.nextInt();
+            sc.nextLine(); // Consume newline character
+            
+            String updateQuery = "UPDATE PropInfo SET PName = ?, PArea = ?, Price = ?, OwnerName = ?, BuyerName = ? WHERE Pid = ?";
+
+            System.out.print("Enter new Property Name: ");
+            String newName = sc.nextLine();
+
+            System.out.print("Enter new Property Area: ");
+            String newArea = sc.nextLine();
+
+            System.out.print("Enter new Property Price: ");
+            float newPrice = sc.nextFloat();
+            sc.nextLine(); // Consume newline character
+            
+            System.out.print("Enter new Property Owner Name: ");
+            String newOwnerName = sc.nextLine();
+
+            System.out.print("Enter new Property Buyer Name: ");
+            String newBuyerName = sc.nextLine();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, newName);
+            preparedStatement.setString(2, newArea);
+            preparedStatement.setFloat(3, newPrice);
+            preparedStatement.setString(4, newOwnerName);
+            preparedStatement.setString(5, newBuyerName);
+            preparedStatement.setInt(6, propertyIdToUpdate);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            System.out.println(rowsAffected + " row(s) updated.");
+
+            sc.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+ *
+*/

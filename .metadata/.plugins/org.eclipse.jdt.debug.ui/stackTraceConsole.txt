@@ -1,0 +1,8 @@
+//Dispaly Values
+			
+			DisplayProperty dispObj = new DisplayProperty();
+			dispObj.displayPro(conn,daoObj.getPid());
+//Dispaly Values
+			
+			DisplayProperty dispObj = new DisplayProperty();
+			dispObj.displayPro(conn,daoObj.getPid());

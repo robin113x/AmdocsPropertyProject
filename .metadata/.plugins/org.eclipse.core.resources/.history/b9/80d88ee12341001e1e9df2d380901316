@@ -1,0 +1,38 @@
+package com.amdocs.in;
+
+public class DeleteProp {
+	
+
+public void deleteProp() {
+
+
+       
+
+        try  {
+        	S
+
+            System.out.print("Enter the ID of the property to delete: ");
+            int propertyIdToDelete = sc.nextInt();
+
+            String deleteQuery = "DELETE FROM PropInfo WHERE Pid = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+            preparedStatement.setInt(1, propertyIdToDelete);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println(rowsAffected + " row(s) deleted.");
+            } else {
+                System.out.println("No matching property found.");
+            }
+
+         
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+ */
+*/

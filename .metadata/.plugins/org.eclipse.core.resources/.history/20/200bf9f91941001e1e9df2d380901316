@@ -1,0 +1,60 @@
+package com.amdocs.in;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import com.amdoc.DAO.*;
+
+public class AddProperty {
+	DAO daoObj;
+	Scanner sc;
+	PreparedStatement statement;
+
+	public AddProperty() {
+		daoObj = new DAO();
+		sc = new Scanner(System.in);
+	}
+
+	public void addData(Connection conn) {
+		try {
+			System.out.print("\nEnter Property Name : ");
+			String pname = sc.next();
+			daoObj.setPname(pname);
+			System.out.print("\nEnter Property Area : ");
+			String area = sc.next();
+			daoObj.setArea(area);
+			System.out.print("\nEnter Property Price : ");
+			Float price = sc.nextFloat();
+			daoObj.setPrice(price);
+			System.out.print("\nEnter Property Owner : ");
+			String owner = sc.next();
+			daoObj.setoName(owner);
+			System.out.print("\nEnter Property Buyer : ");
+			String buyer = sc.next();
+			daoObj.setbName(buyer);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		try {
+			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName) VALUES (?,?,?,?, ?, ?)";
+			statement = conn.prepareStatement(sql);
+			statement.setInt(1, daoObj.getPid());
+			statement.setString(2, daoObj.getPname());
+			statement.setString(3, daoObj.getArea());
+			statement.setFloat(4, daoObj.getPrice());
+			statement.setString(5, daoObj.getoName());
+			statement.setString(6, daoObj.getbName());
+			statement.executeUpdate();
+			System.out.println("Record created : ");
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

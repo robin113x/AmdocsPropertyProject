@@ -1,0 +1,48 @@
+package com.amdocs.in;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class UpdateProperty {
+	public void updatePropperty(Connection conn, Scanner sc) {
+		try {
+			System.out.print("Enter the ID of the property to update: ");
+			int propertyIdToUpdate = sc.nextInt();
+			sc.nextLine();
+
+			while (true) {
+				System.out.println("1.Price");
+				System.out.println("2.Owner");
+				System.out.println("3.Buyer");
+				System.out.println("4.Exit");
+				System.out.print("choose Option : ");
+				int opt = sc.nextInt();
+				if (opt >= 4) {
+					break;
+				}
+				
+			}
+
+			String updateQuery = "UPDATE PropInfo SET  Price = ?, OwnerName = ?, BuyerName = ? WHERE Pid = ?";
+			System.out.print("Enter new Property Price: ");
+			float newPrice = sc.nextFloat();
+			sc.nextLine();
+			System.out.print("Enter new Property Owner Name: ");
+			String newOwnerName = sc.nextLine();
+			System.out.print("Enter new Property Buyer Name: ");
+			String newBuyerName = sc.nextLine();
+
+			PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
+			preparedStatement.setFloat(1, newPrice);
+			preparedStatement.setString(2, newOwnerName);
+			preparedStatement.setString(3, newBuyerName);
+			preparedStatement.setInt(4, propertyIdToUpdate);
+
+			int rowsAffected = preparedStatement.executeUpdate();
+			System.out.println(rowsAffected + " row(s) updated.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
