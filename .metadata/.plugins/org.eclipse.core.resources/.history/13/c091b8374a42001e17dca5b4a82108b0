@@ -6,15 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.amdoc.POJO.*;
+import com.amdoc.DAO.*;
 
 public class AddProperty {
-	POJO daoObj;
+	DAO daoObj;
 	Scanner sc;
 	PreparedStatement statement;
 
 	public AddProperty() {
-		daoObj = new POJO();
+		daoObj = new DAO();
 	}
 
 	public void addData(Connection conn,Scanner sc,BufferedReader br) {
