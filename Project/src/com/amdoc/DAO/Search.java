@@ -13,10 +13,10 @@ public class Search {
 			String QUERY = "SELECT * FROM PropInfo where PArea='" + area + "';";
 			ResultSet rs = statement.executeQuery(QUERY);
 			System.out.println("***************************************");
-			//ResultSet temp =rs;
-//			if (temp.next() == false) {
-//				System.out.println("No Property ... Thank You....");
-//			}
+			ResultSet temp =rs;
+			if (temp.next() == false) {
+				System.out.println("No Property Found \n ... Thank You....\n");
+			}
 
 			while (rs.next()) {
 				// Display values

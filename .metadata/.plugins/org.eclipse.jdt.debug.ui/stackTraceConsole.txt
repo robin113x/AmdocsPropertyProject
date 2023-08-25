@@ -1,8 +1,2 @@
-//Dispaly Values
-			
-			DisplayProperty dispObj = new DisplayProperty();
-			dispObj.displayPro(conn,daoObj.getPid());
-//Dispaly Values
-			
-			DisplayProperty dispObj = new DisplayProperty();
-			dispObj.displayPro(conn,daoObj.getPid());
+Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM PropInfo");
