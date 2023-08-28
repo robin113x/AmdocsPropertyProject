@@ -1,8 +1,0 @@
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.util.Iterator"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.util.Scanner"/><rhs name\="java.io.BufferedReader"/><rhs name\="java.io.InputStreamReader"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="java.util.Scanner"/><rhs name\="java.io.BufferedReader"/><rhs name\="java.io.InputStreamReader"/></lhs><lhs name\="com.amdocs.in.AddProperty"><rhs name\="com.amdocs.in.AddProperty"/></lhs><lhs name\="com.amdocs.in.ViewProperty"><rhs name\="com.amdocs.in.ViewProperty"/></lhs><lhs name\="com.amdocs.in.DisplayProperty"><rhs name\="com.amdocs.in.DisplayProperty"/></lhs><lhs name\="com.amdocs.in.Search"><rhs name\="com.amdocs.in.Search"/></lhs><lhs name\="com.amdocs.in.DeleteProp"><rhs name\="com.amdocs.in.DeleteProp"/></lhs><lhs name\="com.amdocs.in.UpdateProperty"><rhs name\="com.amdocs.in.UpdateProperty"/></lhs><lhs name\="java.io.Reader"><rhs name\="java.io.BufferedReader"/><rhs name\="java.io.InputStreamReader"/></lhs><lhs name\="java.lang.Readable"><rhs name\="java.io.BufferedReader"/><rhs name\="java.io.InputStreamReader"/></lhs><lhs name\="java.io.BufferedReader"><rhs name\="java.io.BufferedReader"/></lhs></history>
-content_assist_number_of_computers=15
-eclipse.preferences.version=1
-org.eclipse.jdt.ui.formatterprofiles.version=23
-spelling_locale_initialized=true
-typefilter_migrated_2=true
-useAnnotationsPrefPage=true
-useQuickDiffPrefPage=true
