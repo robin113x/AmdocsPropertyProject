@@ -9,7 +9,6 @@ public class DatabaseConnection {
 		Connection con;
 		try
 		{   
-
 			con=DriverManager.getConnection(  
 					"jdbc:mysql://localhost:3306/property_search_system","root","thahaxaina98@");  
 
