@@ -12,6 +12,77 @@ public class mainApp {
 		System.out.println(DBA_Connector.getConnection());
 
 		int option;
+		do {
+			System.out.println("*****************STARTUP MENU************");
+			System.out.println("1.Register");
+			System.out.println("2.Login");
+			System.out.println("3.Exit");
+			System.out.println("Enter option you want");
+			option = sc.nextInt();
+
+			switch (option) {
+			case 1:
+				register();
+				break;
+			case 2:
+				if (login()) {
+					MenuDisplay();
+				} else {
+					System.out.println("Failed login");
+				}
+				break;
+			case 3:
+				System.out.println("Exit.....");
+				break;
+			default:
+				System.out.println("Invalid option selected, please select again !!");
+				break;
+
+			}
+
+		} while (option != 3);
+
+		sc.close();
+
+	}
+
+	
+	private static void register() {
+		String userName, password;
+		System.out.println("Enter the username - ");
+		userName = sc.next();
+		System.out.println("Enter the password - ");
+		password = sc.next();
+		
+		userPojoClass userObj = new userPojoClass(userName, password);
+		DBA_Connector dbaConnectorObj = new DBA_Connector();
+		boolean registertrationStatus = dbaConnectorObj.registerUser(userObj);
+		
+		if(registertrationStatus)
+		{
+			System.out.println("Registration done. Now your elible for login");
+		}
+		else
+		{
+			System.out.println("Registration not done, please try again");
+		}
+				
+	}
+	
+	private static boolean login() {
+		String userName, password;
+		System.out.println("Enter the username - ");
+		userName = sc.next();
+		System.out.println("Enter the password - ");
+		password = sc.next();
+		
+		DBA_Connector dbaConnectorObj = new DBA_Connector();
+		return dbaConnectorObj.authUser(userName, password);
+		
+	}
+
+	public static void MenuDisplay() {
+		int option;
 
 		System.out.println("\n*** MENU ***");
 
@@ -89,6 +160,7 @@ public class mainApp {
 
 		DOA daoObj = new DOA();
 		daoObj.insert(obj);
+		sc.close();
 	}
 
 	// updating property
@@ -117,6 +189,7 @@ public class mainApp {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		sc.close();
 
 	}
 
@@ -134,6 +207,7 @@ public class mainApp {
 			System.out.println("Property Buyer :" + obj.getBuyerName());
 			System.out.println("________________________________________");
 		}
+		sc.close();
 	}
 
 	// delete property
@@ -143,6 +217,7 @@ public class mainApp {
 		doaobj.deletProp(sc.nextInt());
 		System.out.println("data deleted");
 		System.out.println("________________________________________");
+		sc.close();
 	}
 
 	// searching property
@@ -157,6 +232,7 @@ public class mainApp {
 		}
 		System.out.println("________________________________________");
 		System.out.println("\ndata searched\n");
+		sc.close();
 
 	}
 
@@ -176,6 +252,6 @@ public class mainApp {
 		}
 
 		System.out.println("property found by price range");
+		sc.close();
 	}
-
 }
