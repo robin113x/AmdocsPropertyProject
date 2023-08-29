@@ -63,8 +63,8 @@ public class Property {
 
 	@Override
 	public String toString() {
-		return "Property"+ "\n Prop_id="  + Prop_id +"\n Prop_name=" + Prop_name +"\n prop_location=" + prop_location
-			+"\n prop_price=" + prop_price +"\n prop_type=" + prop_type +"\n prop_status ="+ prop_status +"\n";
+		return "Property"+ "\n Prop_id = "  + Prop_id +"\n Prop_name = " + Prop_name +"\n prop_location = " + prop_location
+			+"\n prop_price = " + prop_price +"\n prop_type = " + prop_type +"\n prop_status ="+ prop_status +"\n";
 	}
 
 	

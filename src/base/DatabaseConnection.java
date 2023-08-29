@@ -15,7 +15,10 @@ public class DatabaseConnection {
 			//here Property_search_system is database name, root is username and password  
 
 			if(con!=null) {
-				System.out.println("connection Established");
+				System.out.println("Connection Established! ");
+				System.out.println("Welcome to Property Management System! ");
+				System.out.print("\n*************************");
+				System.out.println("\t");
 			}
 			return con;
 		}

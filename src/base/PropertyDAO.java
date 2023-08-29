@@ -24,7 +24,7 @@ public class PropertyDAO {
 			statement.setString(6,property.getProp_status());
 			statement.executeUpdate();
 		}
-		
+
 	}
 
 	// to update the property on the database over the existing property
@@ -39,10 +39,10 @@ public class PropertyDAO {
 			statement.setString(6,property.getProp_status());
 			statement.executeUpdate();
 		}
-		
+
 	}
 
-// to search the data from database based on the prop_id
+	// to search the data from database based on the prop_id
 	public Property propertySearchByIdAndStatus(int prop_id, String status) throws SQLException, errorException {
 		String query = "SELECT * from properties WHERE prop_id=? AND not prop_status=?";
 		try(PreparedStatement statement = connection.prepareStatement(query)){
@@ -116,7 +116,34 @@ public class PropertyDAO {
 		return properties;
 	}
 
+	public boolean registerUser(String username, String password) throws SQLException {
+		String query= "INSERT INTO login (Username, password) VALUES(?,?)";
+		try(PreparedStatement statement = connection.prepareStatement(query)){
+			statement.setString(1, username);
+			statement.setString(2, password);
+			int insertRow = statement.executeUpdate();
+			if(insertRow > 0) {
+				return true;
+			}
+			else {
+					return false;
+				}
+			}
+		
+		}
 
-
-
-}
+		public boolean logInUser(String loginUsername, String loginPassword) throws SQLException {
+			String query = "SELECT * FROM login WHERE username = ? and password = ?";
+			try(PreparedStatement statement = connection.prepareStatement(query)){
+				statement.setString(1, loginUsername);
+				statement.setString(2, loginPassword);
+				try(ResultSet resultSet = statement.executeQuery()){
+					return resultSet.next();
+				}
+				catch(SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+	}
