@@ -1,16 +1,18 @@
 package Base;
 
 public class Property {
-	public int floor,id;
+	public int floor,id,price;
 
-	public String building,tower,PropertiesCol;
+	public String building,tower;
+	public boolean status;
+	
 
-	public String getPropertiesCol() {
-		return PropertiesCol;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setPropertiesCol(String propertiesCol) {
-		PropertiesCol = propertiesCol;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getBuilding() {
@@ -44,19 +46,31 @@ public class Property {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Property [floor=" + floor + ", id=" + id + ", building=" + building + ", tower=" + tower + "]";
+	public boolean isStatus() {
+		return status;
 	}
 
-	public Property(int id, int floor, String propertiesCol, String building, String tower) {
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public Property(int id, int floor, int price, String building, String tower, boolean status) {
 		super();
 		this.floor = floor;
 		this.id = id;
 		this.building = building;
 		this.tower = tower;
-		PropertiesCol = propertiesCol;
+		this.price = price;
+		this.status = status;
 	}
+
+	@Override
+	public String toString() {
+		return "Property [floor=" + floor + ", id=" + id + ", building=" + building + ", tower=" + tower
+				+ ", PropertiesCol=" + price + ", status=" + status + "]";
+	}
+
+	
 
 	
 }
