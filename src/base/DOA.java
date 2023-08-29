@@ -121,4 +121,49 @@ public class DOA {
 
 	}
 
+	// searching by the price range
+	public void searchPropByPriceRange(int propmin, int propmax) throws PropertyNotFoundException {
+		try (Connection connection = DBA_Connector.getConnection()) {
+			String searchByPriceRangeQuery = "SELECT * FROM property WHERE cost > ? AND cost < ?";
+			try (PreparedStatement statement = connection.prepareStatement(searchByPriceRangeQuery)) {
+				statement.setInt(1, propmin);
+				statement.setInt(2, propmax);
+
+				try (ResultSet rs = statement.executeQuery()) {
+					if (rs.next() == true) {
+						System.out.println("Property Id: " + rs.getInt("propId"));
+						System.out.println("Property Name: " + rs.getString("propName"));
+						System.out.println("Property Area: " + rs.getString("area"));
+						System.out.println("Property Cost: " + rs.getInt("cost"));
+						System.out.println("Property Owner: " + rs.getString("ownerName"));
+						System.out.println("Property Buyer: " + rs.getString("buyerName"));
+
+						while (rs.next()) {
+							System.out.println("Property Id: " + rs.getInt("propId"));
+							System.out.println("Property Name: " + rs.getString("propName"));
+							System.out.println("Property Area: " + rs.getString("area"));
+							System.out.println("Property Cost: " + rs.getInt("cost"));
+							System.out.println("Property Owner: " + rs.getString("ownerName"));
+							System.out.println("Property Buyer: " + rs.getString("buyerName"));
+						}
+					} else {
+						throw new PropertyNotFoundException();
+					}
+//	                while (rs.next()) {
+//	                    System.out.println("Property Id: " + rs.getInt("propId"));
+//	                    System.out.println("Property Name: " + rs.getString("propName"));
+//	                    System.out.println("Property Area: " + rs.getString("area"));
+//	                    System.out.println("Property Cost: " + rs.getInt("cost"));
+//	                    System.out.println("Property Owner: " + rs.getString("ownerName"));
+//	                    System.out.println("Property Buyer: " + rs.getString("buyerName"));
+//	                }
+				}
+			}
+		} catch (SQLException e) {
+			// Handle the exception gracefully
+			System.err.println("An error occurred while searching properties: " + e.getMessage());
+			e.printStackTrace(); // Print the exception trace
+		}
+	}
+
 }

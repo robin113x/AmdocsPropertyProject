@@ -21,7 +21,9 @@ public class mainApp {
 			System.out.println("3. To view proprty details");
 			System.out.println("4. Delete property");
 			System.out.println("5. Search property");
-			System.out.println("6. Exit\n");
+			System.out.println("6. Search property by price range");
+			System.out.println("7. Exit");
+			System.out.println("_______________________________________");
 
 			option = sc.nextInt();
 
@@ -45,17 +47,20 @@ public class mainApp {
 			case 5:
 				searchProp();
 				break;
-
 			case 6:
+				searchPropByPriceRange();
+				break;
+
+			case 7:
 				System.out.println("Exit");
 				break;
 
 			default:
-				System.out.println("Please enter the valid choice 1 to 6");
+				System.out.println("Please enter the valid choice 1 to 7");
 				break;
 			}
 
-		} while (option != 6);
+		} while (option != 7);
 
 		sc.close();
 
@@ -85,7 +90,7 @@ public class mainApp {
 		DOA daoObj = new DOA();
 		daoObj.insert(obj);
 	}
-	
+
 	// updating property
 	private static void updateProp() {
 		// updating property
@@ -104,13 +109,18 @@ public class mainApp {
 		obj2.setBuyerName(sc.next());
 
 		DOA doaObj = new DOA();
-		doaObj.update(obj2);
-		System.out.println("_______________________________________");
-		System.out.println("Updation completed");
+
+		try {
+			doaObj.update(obj2);
+			System.out.println("_______________________________________");
+			System.out.println("Updating completed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
-	//view property
+	// view property
 	private static void viewProp() {
 		DOA daoObj = new DOA();
 		List<propertyEnt> propList = daoObj.getAllDetails();
@@ -126,7 +136,7 @@ public class mainApp {
 		}
 	}
 
-	//delete property
+	// delete property
 	private static void delProp() {
 		DOA doaobj = new DOA();
 		System.out.println("Enter the id for entry you want to delete");
@@ -135,7 +145,7 @@ public class mainApp {
 		System.out.println("________________________________________");
 	}
 
-	//searching property
+	// searching property
 	private static void searchProp() {
 		DOA doaObj = new DOA();
 		System.out.println("Enter the id  of property you want to search");
@@ -148,6 +158,24 @@ public class mainApp {
 		System.out.println("________________________________________");
 		System.out.println("\ndata searched\n");
 
+	}
+
+	// searching property with price range
+	private static void searchPropByPriceRange() {
+		DOA doaObj = new DOA();
+		int minimumPrice, maximumPrice;
+		System.out.println("Enter te minimum price of property you want");
+		minimumPrice = sc.nextInt();
+
+		System.out.println("Enter te maximum price of property you want");
+		maximumPrice = sc.nextInt();
+		try {
+			doaObj.searchPropByPriceRange(minimumPrice, maximumPrice);
+		} catch (PropertyNotFoundException e) {
+			System.out.println(e);
+		}
+
+		System.out.println("property found by price range");
 	}
 
 }
