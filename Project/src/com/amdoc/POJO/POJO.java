@@ -7,6 +7,7 @@ public class POJO {
 	private float price;
 	private String oName;
 	private String bName;
+	private String Avi;
 
 	public int getPid() {
 		return pid;
@@ -54,6 +55,14 @@ public class POJO {
 
 	public void setbName(String bName) {
 		this.bName = bName;
+	}
+
+	public String getAvi() {
+		return Avi;
+	}
+
+	public void setAvi(String avi) {
+		Avi = avi;
 	}
 
 }

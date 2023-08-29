@@ -12,8 +12,8 @@ public class ViewProperty {
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM PropInfo");
 
-			System.out.printf("%-5s %-20s %-15s %-10s %-20s %-20s%n", "ID", "Name", "Area", "Price", "Owner Name",
-					"Buyer Name");
+			System.out.printf("%-5s %-20s %-15s %-10s %-20s %-20s  %-20s%n", "ID", "Name", "Area", "Price", "Owner Name",
+					"Buyer Name","Avilable");
 
 			while (rs.next()) {
 				int id = rs.getInt("Pid");
@@ -22,8 +22,9 @@ public class ViewProperty {
 				Float price = rs.getFloat("Price");
 				String owner = rs.getString("OwnerName");
 				String buyer = rs.getString("BuyerName");
+				String avila = rs.getString("Avilable");
 
-				System.out.printf("%-5d %-20s %-15s %-10.2f %-20s %-20s%n", id, name, area, price, owner, buyer);
+				System.out.printf("%-5d %-20s %-15s %-10.2f %-20s %-20s %-20s%n", id, name, area, price, owner, buyer,avila);
 			}
 			System.out.println("\n");
 

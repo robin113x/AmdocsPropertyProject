@@ -1,18 +1,25 @@
 package com.amdoc.DAO;
 
-import java.sql.Statement;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
-public class DisplayProperty {
+public class SearchPrice {
 	Statement statement;
-
-	public void displayPro(Connection conn, String pname) {
+	
+	public void searchPri(Connection conn, int st, int ed) 
+	{
 		try {
 			statement = conn.createStatement();
-			String QUERY = "SELECT * FROM PropInfo where PName='"+pname+"';";
+			String QUERY = " SELECT * FROM PropInfo where Price between " +st+ " and "+ed+ " ;";
 			ResultSet rs = statement.executeQuery(QUERY);
 			System.out.println("***************************************");
+//			ResultSet temp =rs;
+//			if (temp.next() == false) {
+//				System.out.println("No Property ... Thank You....");
+//			}
+
 			while (rs.next()) {
 				// Display values
 				System.out.println("PID : " + rs.getInt("Pid"));
@@ -21,10 +28,10 @@ public class DisplayProperty {
 				System.out.println("Price : " + rs.getFloat("Price"));
 				System.out.println("Owner : " + rs.getString("OwnerName"));
 				System.out.println("Buyer : " + rs.getString("BuyerName"));
+				System.out.println("Avilable : " + rs.getString("Avilable"));
+				System.out.println("\n***************************************\n");
 			}
-			System.out.println("\n***************************************\n");
-		} catch (Exception e) {
-			// TODO: handle exception
+					} catch (Exception e) {
 			System.out.println(e);
 		}
 

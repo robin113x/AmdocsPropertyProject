@@ -26,22 +26,25 @@ public class AddProperty {
 			String area = br.readLine();
 			System.out.println();
 			daoObj.setArea(area);
-			System.out.print("\nEnter Property Price : ");
+			System.out.print("Enter Property Price : ");
 			Float price = sc.nextFloat();
 			daoObj.setPrice(price);
-			System.out.print("\nEnter Property Owner : ");
+			System.out.print("Enter Property Owner : ");
 			String owner = br.readLine();
 			daoObj.setoName(owner);
-			System.out.print("\nEnter Property Buyer : ");
+			System.out.print("Enter Property Buyer : ");
 			String buyer = br.readLine();
 			daoObj.setbName(buyer);
-
+			System.out.print("Property Avilable[y/n] : ");
+			String avi = br.readLine();
+			daoObj.setAvi(avi);
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
 		try {
-			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName) VALUES (?,?,?,?, ?, ?)";
+			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName,Avilable) VALUES (?,?,?,?, ?,?,?)";
 			statement = conn.prepareStatement(sql);
 			statement.setInt(1, daoObj.getPid());
 			statement.setString(2, daoObj.getPname());
@@ -49,8 +52,8 @@ public class AddProperty {
 			statement.setFloat(4, daoObj.getPrice());
 			statement.setString(5, daoObj.getoName());
 			statement.setString(6, daoObj.getbName());
+			statement.setString(7, daoObj.getAvi());
 			statement.executeUpdate();
-			System.out.println(daoObj.getPname());
 			System.out.println("Record created : ");
 			//Display Values
 			

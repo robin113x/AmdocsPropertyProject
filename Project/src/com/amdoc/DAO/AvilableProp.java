@@ -4,20 +4,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Search {
+public class AvilableProp {
 	Statement statement;
 
-	public void searchPro(Connection conn, String area) {
+	public void avilablePro(Connection conn) {
 		try {
 			statement = conn.createStatement();
-			String QUERY = "SELECT * FROM PropInfo where PArea='" + area + "';";
+			String QUERY = "SELECT * FROM PropInfo where Avilable='y'";
 			ResultSet rs = statement.executeQuery(QUERY);
 			System.out.println("***************************************");
-			//ResultSet temp =rs;
-//			if (temp.next() == false) {
-//				System.out.println("No Property ... Thank You....");
-//			}
-
 			while (rs.next()) {
 				// Display values
 				System.out.println("PID : " + rs.getInt("Pid"));
@@ -26,12 +21,13 @@ public class Search {
 				System.out.println("Price : " + rs.getFloat("Price"));
 				System.out.println("Owner : " + rs.getString("OwnerName"));
 				System.out.println("Buyer : " + rs.getString("BuyerName"));
-				System.out.println("\n***************************************\n");
 			}
-					} catch (Exception e) {
+			System.out.println("\n***************************************\n");
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 		}
 
 	}
+
 }
