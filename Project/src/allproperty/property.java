@@ -6,6 +6,7 @@ public class property {
 	String property_name;
 	int price;
 	String area;
+	String valid;
 
 
 	public int getPropertyid() {
@@ -32,14 +33,22 @@ public class property {
 	public void setArea(String area) {
 		this.area = area;
 	}
+	public String getValid() {
+		return valid;
+	}
+	public void setValid(String valid) {
+		this.valid = valid;
+	}
 
 
-	public property(int propertyid, String property_name, int price, String area) {
+
+	public property(int propertyid, String property_name, int price, String area,String valid) {
 		super();
 		this.propertyid = propertyid;
 		this.property_name = property_name;
 		this.price = price;
 		this.area = area;
+		this.valid = valid;
 	}
 
 	public property() {
@@ -50,6 +59,11 @@ public class property {
 		super();
 		this.propertyid = propertyid;
 	}
+	public property(String area) {
+		super();
+		this.area = area;
+	}
+
 
 }
 
