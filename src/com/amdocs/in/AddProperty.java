@@ -35,7 +35,7 @@ public class AddProperty {
 			daoObj.setPname(pname);
 			
 			System.out.print("Enter Property Area : ");
-			String area = br.readLine();
+			String area = br.readLine().toLowerCase().trim();
 			System.out.println();
 			daoObj.setArea(area);
 			
@@ -50,6 +50,10 @@ public class AddProperty {
 			System.out.print("\nEnter Property Buyer : ");
 			String buyer = br.readLine();
 			daoObj.setbName(buyer);
+			
+			System.out.print("\nEnter Property Availabilty : ");
+			String Sell = br.readLine().toLowerCase().trim();
+			daoObj.setSell(Sell);
 
 		} 
 		
@@ -60,7 +64,7 @@ public class AddProperty {
 
 		try {
 			
-			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName) VALUES (?,?,?,?, ?, ?)";
+			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName,Sell) VALUES (?,?,?, ?, ?,?,?)";
 			
 			statement = conn.prepareStatement(sql);
 			
@@ -70,6 +74,7 @@ public class AddProperty {
 			statement.setFloat(4, daoObj.getPrice());
 			statement.setString(5, daoObj.getoName());
 			statement.setString(6, daoObj.getbName());
+			statement.setString(7, daoObj.getSell());
 			
 			statement.executeUpdate();
 			

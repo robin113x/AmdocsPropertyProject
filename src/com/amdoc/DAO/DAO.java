@@ -7,6 +7,7 @@ public class DAO {
 	private float price;
 	private String oName;
 	private String bName;
+	private String Sell;
 
 	public int getPid() {
 		return pid;
@@ -47,13 +48,21 @@ public class DAO {
 	public void setoName(String oName) {
 		this.oName = oName;
 	}
+	
+	public void setbName(String bName) {
+		this.bName = bName;
+	}
 
 	public String getbName() {
 		return bName;
 	}
 
-	public void setbName(String bName) {
-		this.bName = bName;
+	public void setSell(String Sell) {
+		this.Sell = Sell;
+	}
+	
+	public String getSell() {
+		return Sell;
 	}
 
 }

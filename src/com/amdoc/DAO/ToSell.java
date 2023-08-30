@@ -1,16 +1,16 @@
-package com.amdocs.in;
+package com.amdoc.DAO;
 
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
-public class DisplayProperty {
+public class ToSell {
 	Statement statement;
 
-	public void displayPro(Connection conn, String pname) {
+	public void avilablePro(Connection conn) {
 		try {
 			statement = conn.createStatement();
-			String QUERY = "SELECT * FROM PropInfo where PName='"+pname+"';";
+			String QUERY = "SELECT * FROM PropInfo where Sell='y'";
 			ResultSet rs = statement.executeQuery(QUERY);
 			System.out.println("***************************************");
 			while (rs.next()) {
@@ -21,13 +21,13 @@ public class DisplayProperty {
 				System.out.println("Price : " + rs.getFloat("Price"));
 				System.out.println("Owner : " + rs.getString("OwnerName"));
 				System.out.println("Buyer : " + rs.getString("BuyerName"));
-				System.out.println("Buyer : " + rs.getString("Sell"));
+				System.out.println("\n***************************************\n");
 			}
-			System.out.println("\n***************************************\n");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 		}
 
 	}
+
 }
