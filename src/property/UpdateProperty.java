@@ -6,12 +6,17 @@ import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class UpdateProperty {
+	
 	public void updatePropperty(Connection conn, Scanner sc,BufferedReader br){		
+		
 		try {
-			System.out.print("Enter the ID of the property to update: ");
+			
+			System.out.print("Enter the Property ID to update: ");
 			int propertyIdToUpdate = sc.nextInt();
 			sc.nextLine();
+			
 			while (true) {
+				
 				String updateQuery;
 				PreparedStatement preparedStatement;
 				float newPrice = 0;
@@ -24,13 +29,14 @@ public class UpdateProperty {
 				System.out.println("4.All");
 				System.out.println("5.Exit");
 				System.out.print("choose Option : ");
-				int opt = sc.nextInt();
-				if (opt >= 5) {
+				
+				int key = sc.nextInt();
+				if (key >= 5) {
 					break;
 				}
-				switch (opt) {
+				switch (key) {
 				case 1:
-					updateQuery = "UPDATE property SET  Price = ?WHERE Pid = ?";
+					updateQuery = "UPDATE property SET  Property_Price = ? WHERE Property_ID = ?";
 					System.out.print("Enter new Property Price: ");
 					newPrice = sc.nextFloat();
 					sc.nextLine();
@@ -40,8 +46,9 @@ public class UpdateProperty {
 					rowsAffected = preparedStatement.executeUpdate();
 					System.out.println(rowsAffected + " row(s) updated.");
 					break;
+				
 				case 2:
-					updateQuery = "UPDATE property SET  OwnerName = ?WHERE Pid = ?";
+					updateQuery = "UPDATE property SET  Property_Owner = ? WHERE Property_ID = ?";
 					System.out.print("Enter new Property Owner Name: ");
 					newOwnerName = br.readLine();
 					preparedStatement = conn.prepareStatement(updateQuery);
@@ -50,8 +57,9 @@ public class UpdateProperty {
 					rowsAffected = preparedStatement.executeUpdate();
 					System.out.println(rowsAffected + " row(s) updated.");
 					break;
+				
 				case 3:
-					updateQuery = "UPDATE property SET  BuyerName = ?WHERE Pid = ?";
+					updateQuery = "UPDATE property SET  Property_Buyer = ? WHERE Property_ID = ?";
 					System.out.print("Enter new Property Buyer Name: ");
 					newBuyerName = br.readLine();
 					preparedStatement = conn.prepareStatement(updateQuery);
@@ -60,8 +68,9 @@ public class UpdateProperty {
 					rowsAffected = preparedStatement.executeUpdate();
 					System.out.println(rowsAffected + " row(s) updated.");
 					break;
+				
 				case 4:
-					updateQuery = "UPDATE property SET  Price = ?, OwnerName = ?, BuyerName = ? WHERE Pid = ?";
+					updateQuery = "UPDATE property SET  Property_Price = ?, Property_Owner = ?, Property_Buyer = ? WHERE Property_ID = ?";
 					System.out.print("Enter new Property Price: ");
 					newPrice = sc.nextFloat();
 					sc.nextLine();
@@ -77,18 +86,25 @@ public class UpdateProperty {
 					rowsAffected = preparedStatement.executeUpdate();
 					System.out.println(rowsAffected + " row(s) updated.");
 					break;
+				
 				default:
 					System.out.println("Thanks");
 					break;
+				
 				}
 					System.out.println("Do you want to Update More [y/n] : ");
 					String ans = sc.next().toLowerCase();
+					
 					if(ans.equals("n") || ans!="y") {
 						break;
 					}
 			}
-		} catch (Exception e) {
+		} 
+		
+		catch (Exception e) {
+			
 			e.printStackTrace();
+		
 		}
 	}
 }

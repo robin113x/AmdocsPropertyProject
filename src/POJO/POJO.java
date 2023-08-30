@@ -1,50 +1,59 @@
 package POJO;
 
 public class POJO {
-	private int pid;	
-	private String pname;
-	private String Area;
+	
+	private int id;	
+	private String propName;
+	private String area;
 	private float price;
-	private String oName;
-	private String bName;
-	public int getPid() {
-		return pid;
+	private String ownerName;
+	private String buyerName;
+	
+	public int getPropID() {
+		return id;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+	
+	public void setPropID(int id) {
+		this.id = id;
 	}
-	public String getPname() {
-		return pname;
+	
+	public String getPropName() {
+		return propName;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	
+	public void setPropName(String propName) {
+		this.propName = propName;
 	}
-	public String getArea() {
-		return Area;
+	
+	public String getPropArea() {
+		return area;
 	}
-	public void setArea(String area) {
-		Area = area;
+	
+	public void setPropArea(String area) {
+		this.area = area;
 	}
-	public float getPrice() {
+	
+	public float getPropPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	
+	public void setPropPrice(float price) {
 		this.price = price;
 	}
-	public String getoName() {
-		return oName;
+	
+	public String getPropOwner() {
+		return ownerName;
 	}
-	public void setoName(String oName) {
-		this.oName = oName;
+	
+	public void setPropOwner(String ownerName) {
+		this.ownerName = ownerName;
 	}
-	public String getbName() {
-		return bName;
+	
+	public String getPropBuyer() {
+		return buyerName;
 	}
-	public void setbName(String bName) {
-		this.bName = bName;
+	
+	public void setPropBuyer(String buyerName) {
+		this.buyerName = buyerName;
 	}
 }
-/*
- * Pid int, PName varchar(10), PArea varchar(10), Price float, OwnerName
- * varchar(10), BuyerName varchar(10)
- */

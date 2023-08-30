@@ -5,19 +5,24 @@ import java.sql.DriverManager;
 
 public class GetConnection {
 
-	public static Connection getConnection(Connection conn) {
-		String dbURL = "jdbc:mysql://localhost:3306/propms";
+	public static Connection getConnection(Connection con) {
+		
+		String dbURL = "jdbc:mysql://localhost:3306/property_schema";
 		String username = "root";
 		String password = "Devansh@2001";
+		
 		try {
-			conn = DriverManager.getConnection(dbURL, username, password);
-//			if (conn != null) {
-//				System.out.println("\t yooo");
-//			}
-		} catch (Exception e) {
+		
+			con = DriverManager.getConnection(dbURL, username, password);
+		
+		} 
+		catch (Exception e) {
+			
 			System.err.println(e);
+		
 		}
-		return conn;
+		
+		return con;
 	}
 }
 
