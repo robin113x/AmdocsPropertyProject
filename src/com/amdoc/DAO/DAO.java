@@ -8,6 +8,7 @@ public class DAO {
 	private String oName;
 	private String bName;
 	private String Sell;
+	private String Rent;
 
 	public int getPid() {
 		return pid;
@@ -63,6 +64,14 @@ public class DAO {
 	
 	public String getSell() {
 		return Sell;
+	}
+	
+	public void setRent(String Rent) {
+		this.Rent = Rent;
+	}
+	
+	public String getRent() {
+		return Rent;
 	}
 
 }

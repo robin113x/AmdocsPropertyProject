@@ -49,13 +49,14 @@ public class Main {
 					System.out.println("5.Search Property ");				
 					System.out.println("6. Search Property By Price Range ");	
 					System.out.println("7. Check Whether the property is on sell or not : ");
-					System.out.println("8.Exit ");				
+					System.out.println("8. Check Whether the property is on rent or not : ");
+					System.out.println("9.Exit ");				
 					System.out.print("Enter your option : ");
 				
 					opt = sc.nextInt();
 				    sc.nextLine();				
 				
-				    if (opt == 8)				
+				    if (opt == 9)				
 				    {			    	
 				    	System.out.println("Thank You");
 					   	break;
@@ -113,6 +114,12 @@ public class Main {
 				    	System.out.println("Check");
 				    	ToSell seObj = new ToSell();
 				    	seObj.avilablePro(connRes);
+				    	break;
+				    	
+				    case 8:
+				    	System.out.println("Check For rent");
+				    	ToRent reObj = new ToRent();
+				    	reObj.avilablePro(connRes);
 				    	break;
 				    	
 				    default:

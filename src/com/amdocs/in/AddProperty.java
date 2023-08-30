@@ -54,6 +54,10 @@ public class AddProperty {
 			System.out.print("\nEnter Property Availabilty : ");
 			String Sell = br.readLine().toLowerCase().trim();
 			daoObj.setSell(Sell);
+			
+			System.out.print("\nEnter Property for Rent : ");
+			String Rent = br.readLine().toLowerCase().trim();
+			daoObj.setRent(Rent);
 
 		} 
 		
@@ -64,7 +68,7 @@ public class AddProperty {
 
 		try {
 			
-			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName,Sell) VALUES (?,?,?, ?, ?,?,?)";
+			String sql = "INSERT INTO PropInfo (Pid, PName, PArea,Price,OwnerName,BuyerName,Sell,Rent) VALUES (?,?,?,?, ?, ?,?,?)";
 			
 			statement = conn.prepareStatement(sql);
 			
@@ -75,6 +79,7 @@ public class AddProperty {
 			statement.setString(5, daoObj.getoName());
 			statement.setString(6, daoObj.getbName());
 			statement.setString(7, daoObj.getSell());
+			statement.setString(8, daoObj.getRent());
 			
 			statement.executeUpdate();
 			
